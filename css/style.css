@@ -407,7 +407,7 @@ body {
   font: 12px Helvetica, Arial, sans-serif;
   line-height: 18px;
   color: #333;
-  background: #103c63 url("gear-tess.png") repeat;
+  background: #103c63;
 }
 
 form, fieldset {
@@ -427,31 +427,28 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2, h3 {
-  color: #015581;
+  color: #103c63;
+  font-family: "Playfair Display SC", "Playfair Display", "Palatino Linotype", "Book Antiqua", "Times New Roman", Times, serif;
+  font-weight: 400;
 }
 
 h1 {
   font-size: 30px;
   line-height: 36px;
-  font-family: "Playfair Display SC", "Playfair Display", "Palatino Linotype", "Book Antiqua", "Times New Roman", Times, serif;
-  font-weight: 400;
   letter-spacing: .1em;
   word-break: keep-all;
 }
 
 h2 {
   font-weight: 400;
-  font-family: "Playfair Display", "Palatino Linotype", "Book Antiqua", "Times New Roman", Times, serif;
   font-size: 24px;
   line-height: 36px;
 }
 
 h3 {
   font-weight: 400;
-  font-family: "Playfair Display", "Palatino Linotype", "Book Antiqua", "Times New Roman", Times, serif;
   font-size: 18px;
   line-height: 18px;
-  color: #015581;
 }
 
 h4, h5 {
@@ -533,7 +530,7 @@ a:link, a:visited {
 }
 
 a:hover, a:active {
-  color: #ff8000;
+  color: #ca7;
 }
 
 img a {
@@ -768,7 +765,7 @@ header:after {
   width: auto;
   padding: .5em;
   border: 1px blue dashed;
-  color: #ff8000;
+  color: #ca7;
 }
 
 /* @end */
@@ -941,7 +938,7 @@ header:after {
 #primary-nav a:hover,
 #primary-nav a:focus,
 #primary-nav li.active a {
-  color: #ff8000;
+  color: #ca7;
   position: relative;
   z-index: 1;
 }
@@ -1163,7 +1160,7 @@ nav + .exhibit {
 
 .homepage-text p:first-letter {
   float: left;
-  color: #015581;
+  color: #103c63;
   font-size: 36px;
   line-height: 30px;
   padding-top: 6px;

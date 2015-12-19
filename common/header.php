@@ -20,16 +20,21 @@
     <?php fire_plugin_hook('public_head',array('view'=>$this)); ?>
     <!-- Stylesheets -->
     <?php
-    queue_css_url('//fonts.googleapis.com/css?family=Playfair+Display:700,400|Playfair+Display+SC:400&subset=latin');
+    queue_css_url('http://fonts.googleapis.com/css?family=Playfair+Display:700,400|Playfair+Display+SC:400&subset=latin');
     queue_css_file(array('iconfonts', 'style'));
 
     echo head_css();
+    if ($background = get_theme_option('Background Image')) {
+        $storage = Zend_Registry::get('storage');
+        $uri = $storage->getUri($storage->getPathByType($background, 'theme_uploads'));
+        echo '<style>body { background: url("' . $uri . '") repeat; }</style>';
+    }
     ?>
     <!-- JavaScripts -->
     <?php queue_js_file('vendor/selectivizr', 'javascripts', array('conditional' => '(gte IE 6)&(lte IE 8)')); ?>
     <?php queue_js_file('vendor/respond'); ?>
     <?php queue_js_file('vendor/jquery-accessibleMegaMenu'); ?>
-    <?php queue_js_file('berlin'); ?>
+    <?php queue_js_file('bigstuff'); ?>
     <?php queue_js_file('globals'); ?>
     <?php echo head_js(); ?>
 </head>

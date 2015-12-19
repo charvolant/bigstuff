@@ -10,7 +10,7 @@ body {
     font: $base-font-size Helvetica, Arial, sans-serif;
     line-height: $base-line-height;
     color: #333;
-    background: #103c63 url("gear-tess.png") repeat;
+    background: $underlay-color;
 }
     
 form, fieldset { 
@@ -26,34 +26,31 @@ input[type=text], input[type=password], textarea {
 
     /* -- Headings -- */
 
-    h1, h2, h3, h4, h5, h6 { margin-bottom: $base-line-height; }
+    h1, h2, h3, h4, h5, h6 {  margin-bottom: $base-line-height; }
 
     h1, h2, h3 {
-        color:#015581;
+        color: $blueprint-blue;
+        font-family: $header-stack;
+        font-weight: 400;
     }
 
     h1 {
         font-size: 2.5 * $base-font-size;
         line-height: 2 * $base-line-height;
-        font-family: $sub-header-stack;
-        font-weight: 400;
         letter-spacing: .1em;
         word-break: keep-all;
     }
 
     h2 {
         font-weight: 400;
-        font-family: $header-stack;
         font-size: 2 * $base-font-size;
         line-height: 2 * $base-line-height;
     }
 
     h3 {
         font-weight: 400;
-        font-family: $header-stack;
         font-size: 1.5 * $base-font-size;
         line-height: $base-line-height;;
-        color:#015581;
     }
 
     h4, h5 {
@@ -111,7 +108,7 @@ input[type=text], input[type=password], textarea {
     /* -- Links -- */
     a:link, a:visited { color: #369; }
 
-    a:hover, a:active { color: #ff8000; }
+    a:hover, a:active { color: #ca7; }
 
     img a { border:none; }
 
@@ -141,7 +138,7 @@ header {
     float:left;
     width:50%;
     font-weight: 700;
-    font-family: $header-stack;
+    font-family: $title-stack;
     letter-spacing: -.1ex;
     color:#c8c8c8;
     text-transform: uppercase;
@@ -229,7 +226,7 @@ header {
         position: absolute;
         width: 100%;
         color: #fff;
-        background:#369;
+        background:$link-color;
         top: 0;
         bottom: 0;
         font-size: 14px;
@@ -290,7 +287,7 @@ header {
     width: auto;
     padding: .5em;
     border: 1px blue dashed;
-    color: #ff8000;
+    color: $highlight-color;
 }
 
 /* @end */
@@ -450,7 +447,7 @@ header {
     a:hover,
     a:focus,
     li.active a {
-        color:#ff8000;
+        color: $highlight-color;
         position: relative;
         z-index: 1;
     }
@@ -608,7 +605,7 @@ nav + .exhibit {
     }
 
     #content h2 {
-        font-family: $sub-header-stack;
+        font-family: $header-stack;
         font-weight: normal;
     }
 }
@@ -616,7 +613,7 @@ nav + .exhibit {
 .homepage-text {
     p:first-letter {
         float: left;
-        color: #015581;
+        color: $header-color;
         font-size: 36px;
         line-height: 30px;
         padding-top: 6px;

@@ -1,6 +1,12 @@
 <?php
 require_once LIB_DIR . '/globals.php';
 
+/**
+ * Make a description of an item suitable for including in a header
+ *
+ * @param Item $item The item to describe
+ * @return string
+ */
 function make_item_head($item) {
     $head = '';
     if ($author = metadata($item, array('Dublin Core', 'Creator')))
@@ -13,6 +19,14 @@ function make_item_head($item) {
     return $head;
 }
 
+/**
+ * Get a theme option wuith a default value
+ *
+ * @param string $option The theme option name
+ * @param $def The default value if the option is not set
+ * @param string|null $theme The theme name (defaults to the current theme)
+ * @return string
+ */
 function get_theme_option_with_default($option, $def, $theme = null) {
     $value = get_theme_option($option, $theme);
     if ($value == null || strlen($value) == 0)
@@ -20,6 +34,15 @@ function get_theme_option_with_default($option, $def, $theme = null) {
     return $value;
 }
 
+/**
+ * Try and extract a year from a date.
+ * <p>
+ * This uses the PHP parse_date function.
+ * Finding a year is conditional on the date being in a parsable for, otherwise the entire date is returned.
+ *
+ * @param string|null $date The date (null or 'na' for no date)
+ * @return string
+ */
 function get_year($date) {
     if ($date == null || $date == 'na')
         return null;
@@ -32,6 +55,17 @@ function get_year($date) {
     return $date;
 }
 
+/**
+ * Add an element to a citation and return the constructed citation.
+ *
+ * @param string $citation The current citation string
+ * @param string|null $element The element to add (null, empty or 'na') for none
+ * @param string|null $begin A prefix to the element, if the element is included
+ * @param string|null $end A suffix to the element, if the element is included
+ * @param string|null $separator
+ *
+ * @return string
+ */
 function add_element($citation, $element, $begin = null, $end = null, $separator = ', ') {
     if ($element == null)
         return $citation;
@@ -48,6 +82,13 @@ function add_element($citation, $element, $begin = null, $end = null, $separator
     return $citation;
 }
 
+/**
+ * Make an article citation
+ *
+ * @param Item $item The item
+ * @param boolean $html Use html formatting
+ * @return string
+ */
 function make_article_citation($item, $html) {
     $collection =  get_collection_for_item($item);
     $citation = add_element("", metadata($item, array('Dublin Core', 'Creator')));
@@ -64,6 +105,13 @@ function make_article_citation($item, $html) {
     return $citation;
 }
 
+/**
+ * Make a conference paper citation
+ *
+ * @param Item $item The item
+ * @param boolean $html Use html formatting
+ * @return string
+ */
 function make_paper_citation($item, $html) {
     $collection =  get_collection_for_item($item);
     $citation = add_element("", metadata($item, array('Dublin Core', 'Creator')));
@@ -85,6 +133,13 @@ function make_paper_citation($item, $html) {
     return $citation;
 }
 
+/**
+ * Make a book citation
+ *
+ * @param Item $item The item
+ * @param boolean $html Use html formatting
+ * @return string
+ */
 function make_book_citation($item, $html) {
     $citation = add_element("", metadata($item, array('Dublin Core', 'Creator')));
     $citation = add_element($citation, get_year(metadata($item, array('Dublin Core', 'Date'))), null, null, ' ');
@@ -94,6 +149,13 @@ function make_book_citation($item, $html) {
     return $citation;
 }
 
+/**
+ * Make a manual citation
+ *
+ * @param Item $item The item
+ * @param boolean $html Use html formatting
+ * @return string
+ */
 function make_manual_citation($item, $html) {
     $citation = add_element("", metadata($item, array('Dublin Core', 'Creator')));
     $citation = add_element($citation, get_year(metadata($item, array('Dublin Core', 'Date'))), null, null, ' ');
@@ -103,6 +165,13 @@ function make_manual_citation($item, $html) {
     return $citation;
 }
 
+/**
+ * Make a thesis citation
+ *
+ * @param Item $item The item
+ * @param boolean $html Use html formatting
+ * @return string
+ */
 function make_thesis_citation($item, $html) {
     $citation = add_element("", metadata($item, array('Dublin Core', 'Creator')));
     $citation = add_element($citation, get_year(metadata($item, array('Dublin Core', 'Date'))), null, null, ' ');
@@ -112,6 +181,13 @@ function make_thesis_citation($item, $html) {
     return $citation;
 }
 
+/**
+ * Make an report citation
+ *
+ * @param Item $item The item
+ * @param boolean $html Use html formatting
+ * @return string
+ */
 function make_report_citation($item, $html) {
     $citation = add_element("", metadata($item, array('Dublin Core', 'Creator')));
     $citation = add_element($citation, get_year(metadata($item, array('Dublin Core', 'Date'))), null, null, ' ');
@@ -121,6 +197,13 @@ function make_report_citation($item, $html) {
     return $citation;
 }
 
+/**
+ * Make a generic text citation
+ *
+ * @param Item $item The item
+ * @param boolean $html Use html formatting
+ * @return string
+ */
 function make_text_citation($item, $html) {
     $citation = add_element("", metadata($item, array('Dublin Core', 'Creator')));
     $citation = add_element($citation, metadata($item, array('Dublin Core', 'Title')), $html ? '<em>' : null, $html ? '</em>' : null);
@@ -129,6 +212,13 @@ function make_text_citation($item, $html) {
     return $citation;
 }
 
+/**
+ * Make a website citation
+ *
+ * @param Item $item The item
+ * @param boolean $html Use html formatting
+ * @return string
+ */
 function make_website_citation($item, $html) {
     $citation = add_element("", metadata($item, array('Dublin Core', 'Title')));
     $citation = add_element($citation, metadata($item, array('Dublin Core', 'Source')), $html ? '<span class="citation-url">' : null, $html ? '</span>' : null);
@@ -136,6 +226,13 @@ function make_website_citation($item, $html) {
     return $citation;
 }
 
+/**
+ * Make an hyperlink citation
+ *
+ * @param Item $item The item
+ * @param boolean $html Use html formatting
+ * @return string
+ */
 function make_hyperlink_citation($item, $html) {
     $citation = add_element("", metadata($item, array('Dublin Core', 'Title')));
     $citation = add_element($citation, metadata($item, array('Dublin Core', 'Source')), $html ? '<span class="citation-url">' : null, $html ? '</span>' : null);
@@ -143,6 +240,13 @@ function make_hyperlink_citation($item, $html) {
     return $citation;
 }
 
+/**
+ * Make a moving image citation
+ *
+ * @param Item $item The item
+ * @param boolean $html Use html formatting
+ * @return string
+ */
 function make_moving_image_citation($item, $html) {
     $citation = add_element("", metadata($item, array('Dublin Core', 'Creator')));
     $citation = add_element($citation, get_year(metadata($item, array('Dublin Core', 'Date'))), null, null, ' ');
@@ -150,6 +254,13 @@ function make_moving_image_citation($item, $html) {
     return $citation;
 }
 
+/**
+ * Make a still image citation
+ *
+ * @param Item $item The item
+ * @param boolean $html Use html formatting
+ * @return string
+ */
 function make_still_image_citation($item, $html) {
     $citation = add_element("", metadata($item, array('Dublin Core', 'Creator')));
     $citation = add_element($citation, get_year(metadata($item, array('Dublin Core', 'Date'))), null, null, ' ');
@@ -157,6 +268,13 @@ function make_still_image_citation($item, $html) {
     return $citation;
 }
 
+/**
+ * Make a generic citation
+ *
+ * @param Item $item The item
+ * @param boolean $html Use html formatting
+ * @return string
+ */
 function make_default_citation($item, $html) {
     $citation = add_element("", metadata($item, array('Dublin Core', 'Creator')));
     $citation = add_element($citation, metadata($item, array('Dublin Core', 'Title')), $html ? '<em>' : null, $html ? '</em>' : null);
@@ -167,6 +285,15 @@ function make_default_citation($item, $html) {
     return $citation;
 }
 
+/**
+ * Make a citation for an item.
+ * <p>
+ * The item type is used to determine what sort of citation should be generated.
+ *
+ * @param Item $item The item
+ * @param boolean $html Use html formatting
+ * @return string
+ */
 function make_citation($item, $html = true) {
     $type = $item->getItemType();
     $type = $type ? $type->name : 'Unknown';
@@ -195,6 +322,13 @@ function make_citation($item, $html = true) {
     return make_default_citation($item, $html);
 }
 
+/**
+ * Find an item that can be used as a 'hero shot'.
+ * <p>
+ * Featured collections are searched randomly until an item with an image is found.
+ *
+ * @return Item
+ */
 function get_random_hero_shot() {
     foreach (get_records('Collection', array('featured' => true, 'sort_field' => 'random')) as $collection) {
         foreach (get_records('Item', array('collection' => $collection->id, 'hasImage' => true, 'sort_field' => 'random')) as $item)
