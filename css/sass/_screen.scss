@@ -1004,6 +1004,10 @@ ul.title-list {
     }
 }
 
+#collection-items .item h3 {
+     font-family: $item-stack;
+ }
+
 .collection-meta {
     @include columns(9);
 }

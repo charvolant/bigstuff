@@ -221,8 +221,10 @@ function make_text_citation($item, $html) {
  */
 function make_website_citation($item, $html) {
     $citation = add_element("", metadata($item, array('Dublin Core', 'Title')));
-    $citation = add_element($citation, metadata($item, array('Dublin Core', 'Source')), $html ? '<span class="citation-url">' : null, $html ? '</span>' : null);
-    $citation = add_element($citation, metadata($item, array('Dublin Core', 'Date')), __('accessed '));
+    $source = metadata($item, array('Dublin Core', 'Source'));
+    $local = metadata($item, array('Item Type Metadata', 'Local URL'));
+    $citation = add_element($citation, $local ? $local : $source, $html ? '<span class="citation-url">' : null, $html ? '</span>' : null);
+    $citation = add_element($citation, metadata($item, array('Dublin Core', 'Date')));
     return $citation;
 }
 
@@ -235,7 +237,7 @@ function make_website_citation($item, $html) {
  */
 function make_hyperlink_citation($item, $html) {
     $citation = add_element("", metadata($item, array('Dublin Core', 'Title')));
-    $citation = add_element($citation, metadata($item, array('Dublin Core', 'Source')), $html ? '<span class="citation-url">' : null, $html ? '</span>' : null);
+    $citation = add_element($citation, metadata($item, array('Item Type Metadata', 'URL')), $html ? '<span class="citation-url">' : null, $html ? '</span>' : null);
     $citation = add_element($citation, metadata($item, array('Dublin Core', 'Date')), __('accessed '));
     return $citation;
 }
@@ -248,9 +250,11 @@ function make_hyperlink_citation($item, $html) {
  * @return string
  */
 function make_moving_image_citation($item, $html) {
-    $citation = add_element("", metadata($item, array('Dublin Core', 'Creator')));
-    $citation = add_element($citation, get_year(metadata($item, array('Dublin Core', 'Date'))), null, null, ' ');
-    $citation = add_element($citation, metadata($item, array('Dublin Core', 'Title')));
+    $citation = add_element("", metadata($item, array('Dublin Core', 'Title')));
+    $citation = add_element($citation, metadata($item, array('Dublin Core', 'Creator')));
+    $citation = add_element($citation, metadata($item, array('Item Type Metadata', 'Director')), __('dir. '));
+    $citation = add_element($citation, metadata($item, array('Item Type Metadata', 'Producer')), __('prod. '));
+    $citation = add_element($citation, get_year(metadata($item, array('Dublin Core', 'Date'))));
     return $citation;
 }
 
@@ -263,8 +267,8 @@ function make_moving_image_citation($item, $html) {
  */
 function make_still_image_citation($item, $html) {
     $citation = add_element("", metadata($item, array('Dublin Core', 'Creator')));
-    $citation = add_element($citation, get_year(metadata($item, array('Dublin Core', 'Date'))), null, null, ' ');
     $citation = add_element($citation, metadata($item, array('Dublin Core', 'Title')));
+    $citation = add_element($citation, get_year(metadata($item, array('Dublin Core', 'Date'))));
     return $citation;
 }
 
@@ -281,6 +285,7 @@ function make_default_citation($item, $html) {
     $citation = add_element($citation, metadata($item, array('Dublin Core', 'Identifier')));
     $citation = add_element($citation, metadata($item, array('Dublin Core', 'Publisher')));
     $citation = add_element($citation, metadata($item, array('Dublin Core', 'Source')));
+    $citation = add_element($citation, metadata($item, array('Item Type Metadata', 'URL')), $html ? '<span class="citation-url">' : null, $html ? '</span>' : null);
     $citation = add_element($citation, metadata($item, array('Dublin Core', 'Date')));
     return $citation;
 }

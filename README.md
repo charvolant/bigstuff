@@ -43,11 +43,11 @@ Citations use the following Dublin Core terms:
 | Thesis(2) | Creator | Date(1) | | Title |  |  | ? | | | | | Source | Identifier | |
 | Report(2) | Creator | Date(1) | | Title |  |  | | | | | | Source | Identifier | |
 | Text | Creator |  | | Title |  | Publisher | | | | | Date |  | | |
-| Website |  |  | | Title |  |  | | | | | Date |  | | Source |
-| Hyperlink |  |  | | Title |  |  | | | | | Date |  | | Source |
-| Moving Image | Creator | Date(1) | | Title |  |  | | | | |  |  | |  |
+| Website |  |  | | Title |  |  | | | | | Date |  | | Local URL or Source |
+| Hyperlink |  |  | | Title |  |  | | | | | Date |  | | URL |
+| Moving Image | Creator, Director, Producer | Date(1) | | Title |  |  | | | | |  |  | |  |
 | Still Image | Creator | Date(1) | | Title |  |  | | | | |  |  | |  |
-| default | Creator | | | Title | | Publisher | | | | | Date | Source | Identfier | |
+| default | Creator | | | Title | | Publisher | | | | | Date | Source | Identfier | URL |
 
 
 *?* These would be really useful but don't have a corresponding Dublin Core term. Boo. Hiss.
