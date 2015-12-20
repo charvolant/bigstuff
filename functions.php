@@ -266,8 +266,8 @@ function make_moving_image_citation($item, $html) {
  * @return string
  */
 function make_still_image_citation($item, $html) {
-    $citation = add_element("", metadata($item, array('Dublin Core', 'Creator')));
-    $citation = add_element($citation, metadata($item, array('Dublin Core', 'Title')));
+    $citation = add_element("", metadata($item, array('Dublin Core', 'Title')));
+    $citation = add_element($citation, metadata($item, array('Dublin Core', 'Creator')));
     $citation = add_element($citation, get_year(metadata($item, array('Dublin Core', 'Date'))));
     return $citation;
 }
