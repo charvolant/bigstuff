@@ -798,9 +798,9 @@ header:after {
   /* mega menu list */
   /* a top level navigation item in the mega menu */
   /* first descendant link within a top level navigation item */
-  /* focus/open states of first descendant link within a top level 
+  /* focus/open states of first descendant link within a top level
      navigation item */
-  /* open state of first descendant link within a top level 
+  /* open state of first descendant link within a top level
      navigation item */
   /* sub-navigation panel */
   /* sub-navigation panel open state */
@@ -1080,12 +1080,6 @@ header:after {
   overflow: auto;
 }
 
-#sort-links + .item,
-#sort-links + .collection,
-nav + .exhibit {
-  border-top: 1px solid #eee;
-}
-
 .item + .pagination-nav ul,
 .collection + .pagination-nav ul,
 .exhibit + .pagination-nav ul {
@@ -1339,6 +1333,12 @@ ul.title-list {
   width: 100%;
 }
 
+.browse:not(:first-child) .item:not(.single-line) {
+  margin-top: 0.5ex;
+  border-top: 1px solid #eee;
+  padding-top: 1ex;
+}
+
 .item-pagination {
   clear: both;
   overflow: hidden;
@@ -1445,8 +1445,7 @@ ul.title-list {
   display: none;
   position: relative;
   overflow: auto;
-  padding: 1ex;
-  margin-right: 1ex;
+  margin: 0.5ex 1em 1ex 2em;
 }
 
 .single-line::before {
@@ -1454,9 +1453,6 @@ ul.title-list {
   padding-right: 0.5ex;
 }
 
-.single-line:hover {
-  border: #c0c0c0 thin solid;
-}
 .single-line:hover .item-meta {
   display: block;
 }
@@ -1543,7 +1539,13 @@ ul.title-list {
 }
 
 #outputs {
+  position: relative;
+  top: 2ex;
+  border-top: 1px solid #eee;
   clear: both;
+}
+#outputs p {
+  margin-top: 0;
 }
 
 .item-img a {

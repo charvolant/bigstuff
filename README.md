@@ -17,6 +17,7 @@ uses the highly configurable index page features from Berlin.
 * Features from BigStuff
     * Customisable background filler image
     * A *hero-shot* image on the home page, selected randomly from items with images in the featured collections.
+    * Single-line item lists, which expand on mouse-over, as a configurable option.
     * Citation-style item information. BigStuff is designed to contain collections of conference papers, as well as
     other collections. If given a suitable item type, the item will be provided with a citation.
 
