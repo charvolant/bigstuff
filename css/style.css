@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -452,12 +453,13 @@ h3 {
 }
 
 h4, h5 {
+  font-family: "Arvo", sans-serif;
   font-size: 15px;
   line-height: 18px;
 }
 
 h4 {
-  font-weight: bold;
+  font-weight: normal;
 }
 
 h5 {
@@ -1333,8 +1335,6 @@ ul.title-list {
 
 .browse .item {
   clear: both;
-  border-bottom: 1px solid #eee;
-  padding: 3em 0;
   float: left;
   width: 100%;
 }
@@ -1428,13 +1428,42 @@ ul.title-list {
   font-size: 360%;
 }
 
+.single-line {
+  display: block;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+.single-line a {
+  text-decoration: none;
+}
+.single-line h4 {
+  display: inline;
+  font-size: 12px;
+  line-height: 18px;
+}
+.single-line .item-meta {
+  display: none;
+  position: relative;
+  overflow: auto;
+  padding: 1ex;
+  margin-right: 1ex;
+}
+
+.single-line::before {
+  content: '•';
+  padding-right: 0.5ex;
+}
+
+.single-line:hover {
+  border: #c0c0c0 thin solid;
+}
+.single-line:hover .item-meta {
+  display: block;
+}
+
 /* @end */
 /* @group ----- Items/Browse ----- */
-.browse .item h2 {
-  font-family: "Arvo", sans-serif;
-  font-size: 14.4px;
-  line-height: 18px;
-  max-width: 100%;
+.browse .item h4 {
   overflow: hidden;
 }
 
@@ -1816,6 +1845,11 @@ footer nav + p {
   text-align: right;
 }
 
+#footer-content {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
 #footer-text {
   float: left;
   width: 48%;
@@ -1835,11 +1869,6 @@ footer nav + p {
   #exhibit-pages {
     width: 172px;
   }
-}
-#exhibit-pages h4 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  text-transform: uppercase;
 }
 #exhibit-pages a {
   text-decoration: none;

@@ -54,11 +54,12 @@ input[type=text], input[type=password], textarea {
     }
 
     h4, h5 {
+        font-family: $minor-header-stack;
         font-size: 1.25 * $base-font-size;
         line-height: $base-line-height;
     }
 
-    h4 { font-weight:bold; }
+    h4 { font-weight: normal; }
 
     h5 { font-style:italic; }
 
@@ -674,7 +675,7 @@ nav + .exhibit {
     }
 
     h3 {
-        font-family: $item-stack;
+        font-family: $minor-header-stack;
         font-size: $base-font-size;
         margin-top: 0;
     }
@@ -761,8 +762,6 @@ ul.title-list {
 
 .browse .item {
     clear: both;
-    border-bottom:1px solid #eee;
-    padding: rhythm(2) 0;
     float: left;
     width: 100%;
 }
@@ -846,16 +845,49 @@ ul.title-list {
         font-size:360%;
     }
 
+.single-line {
+    display: block;
+    margin-left: 1em;
+    margin-right: 1em;
+
+    a {
+        text-decoration: none;
+    }
+
+    h4 {
+        display: inline;
+        font-size: $base-font-size;
+        line-height: $base-line-height;
+    }
+
+    .item-meta {
+        display: none;
+        position: relative;
+        overflow: auto;
+        padding: 1ex;
+        margin-right: 1ex;
+    }
+}
+
+.single-line::before {
+    content: '•';
+    padding-right: 0.5ex;
+}
+
+.single-line:hover {
+    border: #c0c0c0 thin solid;
+
+    .item-meta {
+        display: block;
+    }
+}
+
 
 /* @end */
 
 /* @group ----- Items/Browse ----- */
 
-.browse .item h2 {
-    font-family: $item-stack;
-    font-size: 1.2 * $base-font-size;
-    line-height: $base-line-height;
-    max-width: 100%;
+.browse .item h4 {
     overflow: hidden;
 }
 
@@ -1005,7 +1037,7 @@ ul.title-list {
 }
 
 #collection-items .item h3 {
-     font-family: $item-stack;
+     font-family: $minor-header-stack;
  }
 
 .collection-meta {
@@ -1139,6 +1171,11 @@ footer {
     }
 }
 
+#footer-content {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
 #footer-text {
     float:left;
     width: 48%;
@@ -1158,13 +1195,7 @@ footer {
 
     @media only screen and (min-width: 768px) and (max-width: 959px) {
         width: skeleton-column-width(4, $tablet-width); }
-    
-    h4 {
-        font-family: 'Playfair Display', serif;
-        font-weight: 700;
-        text-transform: uppercase;
-    }
-    
+
     a { text-decoration: none; }
     
     & > ul { 
