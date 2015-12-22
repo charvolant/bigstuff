@@ -69,6 +69,16 @@ For example, an article will get the journal title from the collection title if 
 To override this behaviour, put `na` in the item's term (eg. Putting `na` in the Source for an article
 means that no journal will be listed).
 
+### Background Images
+
+You can use any repeatable image as a background image.
+Three backgrounds are available as part of the theme, all reflecting the technical background to the theme:
+
+* [Gears](images/gears.png)
+* [Bluebrint](images/blueprint.png)
+* [Old Blueprint](images/blueprint-distorted.png)
+
+There are three 
 ## Geeks Corner
 
 ### Licence
