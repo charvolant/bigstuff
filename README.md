@@ -30,34 +30,84 @@ It should them appear as an avilable theme in the Omeka administration pages.
 Once installed, go to the *Appearance* menu in Omeka administration.
 You can then configure the theme.
 
-### Citation Types
+### Citations
+
+The BigStuff theme generates bibliographic citations for items with appropriate item types and information.
+These are designed to allow things like papers and publications to be added and browsed.
+A short citation, generally either author-title or just the title, depending on the item type, is used as a headline.
+A full citation is generated as part of the item summary.
+
+#### Addtional Item Types and Elements
+
+
+
+To get full citation information, a number of additional item types and elements need to be added to your site.
+These don't need to be added, or can be partially added; the citation generator will omit any information
+that it can't find.
+The new item types and elements are listed below, with the standard Dublin Core elements ignored.
+Elements in **bold** are completely new elements or item types.
+Items in *italics* are existing elements that need to be added to item types.
+
+| Type | Description | Elements |
+| ---- | ----------- | -------- |
+| **Article** | An article in a journal or periodical | **Journal**, *Location*, **Pages**, **Volume**, **Number**, **DOI** |
+| **Paper** | A paper presented as part of a conference, workshop, etc. | **Editor**, **Book**, *Location*, **Pages**, **DOI** |
+| **Book** | A book, including published collections such as conference proceedings. | **Editor**, *Location*, **Volume**, **Pages**, **ISBN** |
+| **Manual** | A technical or procedural manual or set of instructions | **Institution**, **Number**, **DOI** |
+| **Thesis** | A PhD or masters thesis | **Location**, **Institution**, **Number**, **DOI** |
+| **Report** | A report produced for a specific purpose |  **Institution**, **Number**, **DOI** |
+| Text | The standard Omeka text item | **DOI** |
+| Website | The standard Omeka website type | |
+| Hyperlink | The standard Omeka hyperlink type |
+| Moving Image | The standard Omeka moving image type | |
+| Still Image | The standard Omeka still image type | |
+
+The additional elements are
+
+| Element | Description |
+| ------- | ----------- |
+| Journal | The name of the journal |
+| Location | Already included in Omeka but used for a publisher's address or conference location |
+| Pages | The page or pages where an article, paper or part of a book can be found |
+| Volume | The journal or book volume |
+| Number | The number of the journal with a volume for a journal. For manuals, reports, etc., the reference number assigned to the document by the creating institution |
+| DOI | The [Digital Object Identifier](https://www.doi.org/) for documents with a persistent DOI |
+| Editor | The editor of a collection or book |
+| Book | The title of the book in which a paper or section has been published |
+| ISBN | The [International Standard Book Number](https://www.isbn-international.org/) of a book |
+
+
+#### Citation Types
 
 Citations are presented differently depending on the *Item Type* of the item, or the Dublin Core *Type* of the collection.
 Citations use the following Dublin Core terms:
 
-| Type | Author | Year | Editor | Title | Journal/Proceedings | Publisher | Location | Pages | Volume | Number | Date | Institution | Document Number | URL |
+| Type | Author | Year | Editor | Title | Journal/Proceedings | Publisher | Location | Pages | Volume | Number | Date | Institution | Document Number | URL | DOI/ISBN |
 | ---- | ------ | ---- | ------ | ----- | ------------------- | --------- | -------- | ----- | ------ | ------ | ---- | ----------- | --------------- | --- |
-| Article(2) | Creator | Date(1) | | Title | Source or Collection Title | Publisher or Collection Publisher | ? | ? | ? | ? | | | | |
-| Paper(2) | Creator | Date(1) | Contibutor or Collection Creator | Title | Source or Collection Title | Publisher or Collection Publisher | ? | ? | ? | ? | Date | | | |
-| Book(2) | Creator | Date(1) | Contributor | Title |  | Publisher | ? | | ? | | | | | |
-| Manual(2) | Creator | Date(1) | | Title |  |  | | | | | | Source | Identifier | |
-| Thesis(2) | Creator | Date(1) | | Title |  |  | ? | | | | | Source | Identifier | |
-| Report(2) | Creator | Date(1) | | Title |  |  | | | | | | Source | Identifier | |
-| Text | Creator |  | | Title |  | Publisher | | | | | Date |  | | |
-| Website |  |  | | Title |  |  | | | | | Date |  | | Local URL or Source |
-| Hyperlink |  |  | | Title |  |  | | | | | Date |  | | URL |
-| Moving Image | Creator, Director, Producer | Date(1) | | Title |  |  | | | | |  |  | |  |
-| Still Image | Creator | Date(1) | | Title |  |  | | | | |  |  | |  |
-| default | Creator | | | Title | | Publisher | | | | | Date | Source | Identfier | URL |
+| Article(2) | Creator | Date(1) | | Title | Journal(3) or Collection Title | Publisher or Collection Publisher | Location | Pages(3) | Volume(3) | Number(3) | | | | | DOI(3) |
+| Paper(2) | Creator | Date(1) | Editor(3) or Collection Creator | Title | Book or Collection Title | Publisher or Collection Publisher | Location | Pages(3) |  |  | Date | | | | DOI(3) |
+| Book(2) | Creator | Date(1) | Editor(3) | Title |  | Publisher | Location | | Volume(3) | | Pages(3) | | | | ISBN(3) |
+| Manual(2) | Creator | Date(1) | | Title |  |  | | | | | | Institution(3) | Number(3) | | DOI(3) |
+| Thesis(2) | Creator | Date(1) | | Title |  |  | Location(3) | | | | | Institution | Number(3) | | DOI(3) |
+| Report(2) | Creator | Date(1) | | Title |  |  | | | | | | Institution(3) | Number(3) | | DOI(3) |
+| Text | Creator |  | | Title |  | Publisher | | | | | Date |  | | | DOI(3) |
+| Website |  |  | | Title |  |  | | | | | Date |  | | Local URL or Source | |
+| Hyperlink |  |  | | Title |  |  | | | | | Date |  | | URL | |
+| Moving Image | Creator, Director, Producer | Date(1) | | Title |  | Publisher | | | | |  |  | |  | |
+| Still Image | Creator | Date(1) | | Title |  | Publisher | | | | |  |  | |  | |
+| default | Creator | | | Title | | Publisher | Location | Pages | | | Date | Institution(3) | Number(3) | URL | DOI(3) |
 
-
-*?* These would be really useful but don't have a corresponding Dublin Core term. Boo. Hiss.
 
 *(1)* Dates are parsed using the PHP `parse_date` function to see if a year can be recognised. In general, use
 *mm/dd/yyyy* for US-style dates, *dd-mm-yyyy* or *dd.mm.yyyy* for European-style dates and *yyyy-mm-dd* for ISO-style dates.
 Two digit years will be interpreted as *yy-mm-dd* - you have been warned. If a date cannot be parsed, the entire date is used.
 
 *(2)* These item types are not part of the standard set of supplied item types.
+
+
+*(3)* These would be really useful but don't have a corresponding Dublin Core term. Boo. Hiss. 
+Instead, they can be added to the item type metadata associated with the new item types.
+
 
 #### Inheritance
 
