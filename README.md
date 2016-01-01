@@ -83,18 +83,18 @@ Citations are presented differently depending on the *Item Type* of the item, or
 Citations use the following Dublin Core terms:
 
 | Type | Author | Year | Editor | Title | Journal/Proceedings | Publisher | Location | Pages | Volume | Number | Date | Institution | Document Number | URL | DOI/ISBN |
-| ---- | ------ | ---- | ------ | ----- | ------------------- | --------- | -------- | ----- | ------ | ------ | ---- | ----------- | --------------- | --- |
+| ---- | ------ | ---- | ------ | ----- | ------------------- | --------- | -------- | ----- | ------ | ------ | ---- | ----------- | --------------- | --- | -------- |
 | Article(2) | Creator | Date(1) | | Title | Journal(3) or Collection Title | Publisher or Collection Publisher | Location | Pages(3) | Volume(3) | Number(3) | | | | | DOI(3) |
-| Paper(2) | Creator | Date(1) | Editor(3) or Collection Creator | Title | Book or Collection Title | Publisher or Collection Publisher | Location | Pages(3) |  |  | Date | | | | DOI(3) |
-| Book(2) | Creator | Date(1) | Editor(3) | Title |  | Publisher | Location | | Volume(3) | | Pages(3) | | | | ISBN(3) |
-| Manual(2) | Creator | Date(1) | | Title |  |  | | | | | | Institution(3) | Number(3) | | DOI(3) |
-| Thesis(2) | Creator | Date(1) | | Title |  |  | Location(3) | | | | | Institution | Number(3) | | DOI(3) |
-| Report(2) | Creator | Date(1) | | Title |  |  | | | | | | Institution(3) | Number(3) | | DOI(3) |
-| Text | Creator |  | | Title |  | Publisher | | | | | Date |  | | | DOI(3) |
-| Website |  |  | | Title |  |  | | | | | Date |  | | Local URL or Source | |
-| Hyperlink |  |  | | Title |  |  | | | | | Date |  | | URL | |
-| Moving Image | Creator, Director, Producer | Date(1) | | Title |  | Publisher | | | | |  |  | |  | |
-| Still Image | Creator | Date(1) | | Title |  | Publisher | | | | |  |  | |  | |
+| Paper(2) | Creator | Date(1) | Editor(3) or Collection Creator | Title | Book or Collection Title | Publisher or Collection Publisher | Location | Pages(3) | | | Date | | | | DOI(3) |
+| Book(2) | Creator | Date(1) | Editor(3) | Title | | Publisher | Location | | Volume(3) | | Pages(3) | | | | ISBN(3) |
+| Manual(2) | Creator | Date(1) | | Title | | | | | | | | Institution(3) | Number(3) | | DOI(3) |
+| Thesis(2) | Creator | Date(1) | | Title | | | Location(3) | | | | | Institution | Number(3) | | DOI(3) |
+| Report(2) | Creator | Date(1) | | Title | | | | | | | | Institution(3) | Number(3) | | DOI(3) |
+| Text | Creator | | | Title | | Publisher | | | | | Date | | | | DOI(3) |
+| Website | | | | Title | | | | | | | Date | | | Local URL or Source | |
+| Hyperlink | | | | Title | | | | | | | Date | | | URL | |
+| Moving Image | Creator, Director, Producer | Date(1) | | Title |  | Publisher | | | | | | | | | |
+| Still Image | Creator | Date(1) | | Title |  | Publisher | | | | | | | | | |
 | default | Creator | | | Title | | Publisher | Location | Pages | | | Date | Institution(3) | Number(3) | URL | DOI(3) |
 
 
