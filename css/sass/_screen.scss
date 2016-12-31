@@ -9,7 +9,7 @@
 }
 
 body {
-    font: $base-font-size Helvetica, Arial, sans-serif;
+    font: $base-font-size $base-font-stack;
     line-height: $base-line-height;
     color: #333;
     background: $underlay-color;
@@ -620,7 +620,7 @@ header {
 }
 
 .record {
-    clear: both;
+    // clear: both;
     overflow: auto;
 }
 
@@ -814,7 +814,7 @@ ul.title-list {
 }
 
 .browse .item {
-    clear: both;
+    //clear: both;
     float: left;
     width: 100%;
 }
@@ -916,7 +916,7 @@ ul.title-list {
 }
 
 .single-line {
-    display: block;
+    display: list-item;
     margin-left: 1em;
     margin-right: 1em;
 
@@ -932,19 +932,14 @@ ul.title-list {
 
     .item-meta {
         display: none;
-        position: relative;
+        width: 50%;
+        position: absolute;
         overflow: auto;
-        margin: 0.5ex 1em 1ex 2em;
-    }
-}
-
-.single-line::before {
-    content: '•';
-    padding-right: 0.5ex;
-}
-
-.single-line:hover .item-meta {
-    display: block;
+        padding: 1ex 1em;
+        border: thin solid $highlight-color;
+        background: #ffffff;
+        z-index: 100;
+     }
 }
 
 /* @end */

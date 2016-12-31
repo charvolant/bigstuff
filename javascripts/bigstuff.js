@@ -14,4 +14,20 @@ if (!Bigstuff) {
             $("#mobile-nav .navigation").slideToggle();
         });
     };
+    Bigstuff.showMetadata = function(metaid, itemid) {
+        var meta = $(metaid);
+        meta.position({
+            my: "left+100 top",
+            at: "left bottom",
+            of: itemid
+        });
+        meta.show();
+    }
+
+    Bigstuff.hideMetadata = function(metaid) {
+        var meta = $(metaid);
+        meta.hide();
+    }
 })(jQuery)
+
+
