@@ -1425,6 +1425,66 @@ ul.title-list {
   font-size: 360%;
 }
 
+/* @end */
+/* @group ----- Items/Browse ----- */
+.browse .item h4 {
+  overflow: hidden;
+}
+
+.browse .item-meta {
+  margin-bottom: 0;
+  max-width: 100%;
+}
+.browse .item-meta p:first-of-type {
+  margin-top: 0;
+}
+.browse .item-meta p:last-of-type {
+  margin-bottom: 0;
+}
+
+.citation-url {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+}
+
+.item-meta .item-description {
+  margin-bottom: 1.5em;
+}
+
+.item-meta .item-img {
+  float: left;
+  display: inline;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 220px;
+  margin-right: 0;
+  float: right;
+  text-align: right;
+}
+@media only screen and (max-width: 767px) {
+  .item-meta .item-img {
+    margin: 0;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  .item-meta .item-img {
+    width: 172px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .item-meta .item-img {
+    width: 300px;
+  }
+}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .item-meta .item-img {
+    width: 420px;
+  }
+}
+
+.item-img img {
+  height: 10.5em;
+}
+
 .single-line {
   display: list-item;
   margin-left: 1em;
@@ -1447,66 +1507,6 @@ ul.title-list {
   border: thin solid #ca7;
   background: #ffffff;
   z-index: 100;
-}
-
-/* @end */
-/* @group ----- Items/Browse ----- */
-.browse .item h4 {
-  overflow: hidden;
-}
-
-.browse .item-meta {
-  margin-bottom: 0;
-  max-width: 100%;
-}
-.browse .item-meta p:first-of-type {
-  margin-top: 0;
-}
-.browse .item-meta p:last-of-type {
-  margin-bottom: 0;
-}
-
-.citation-url {
-  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-}
-
-.browse .item-meta .item-description {
-  margin-bottom: 1.5em;
-}
-
-.browse .item-meta .item-img {
-  float: left;
-  display: inline;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 220px;
-  margin-right: 0;
-  float: right;
-  text-align: right;
-}
-@media only screen and (max-width: 767px) {
-  .browse .item-meta .item-img {
-    margin: 0;
-  }
-}
-@media only screen and (min-width: 768px) and (max-width: 959px) {
-  .browse .item-meta .item-img {
-    width: 172px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .browse .item-meta .item-img {
-    width: 300px;
-  }
-}
-@media only screen and (min-width: 480px) and (max-width: 767px) {
-  .browse .item-meta .item-img {
-    width: 420px;
-  }
-}
-
-.browse .item-img img {
-  height: 10.5em;
 }
 
 /*
