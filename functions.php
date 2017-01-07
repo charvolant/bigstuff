@@ -25,6 +25,9 @@ $LOCAL_URL_ELEMENT = array('Item Type Metadata', 'Local URL');
 $DIRECTOR_ELEMENT = array('Item Type Metadata', 'Director');
 $PRODUCER_ELEMENT = array('Item Type Metadata', 'Producer');
 
+/** Wrap the sortable shortcode */
+add_shortcode('items', 'bigstuff_sortable_items_shortcode');
+
 /**
  * Get a theme option wuith a default value
  *
@@ -474,4 +477,23 @@ function get_random_hero_shot() {
             return $item;
     }
     return null;
+}
+
+function bigstuff_sortable_items_shortcode($args, $view) {
+    $sortLinks = array(
+        __('Title') =>'Dublin Core,Title',
+        __('Creator') => 'Dublin Core,Creator',
+        __('Date') => 'Dublin Core,Date',
+        __('Date Added') => 'added'
+    );
+    $sort_field = Zend_Controller_Front::getInstance()->getRequest()->getParam('sort_field') ?: 'added';
+    $sort_dir = Zend_Controller_Front::getInstance()->getRequest()->getParam('sort_dir') ?: 'a';
+    $args['sort'] = $sort_field;
+    $args['order'] = $sort_dir;
+    $content = '<div class="item-shortcode">';
+    $content .= '<div id="sort-links"><span class="sort-label">' . __('Sort by: ') . '</span>' . browse_sort_links($sortLinks) . '</div>';
+    $content .= '<div class="item-list">';
+    $content .= Omeka_View_Helper_Shortcodes::shortcodeItems($args, $view);
+    $content .= '</div></div>';
+    return $content;
 }
