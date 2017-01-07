@@ -20,6 +20,7 @@ uses the highly configurable index page features from Berlin.
     * Single-line item lists, which expand on mouse-over, as a configurable option.
     * Citation-style item information. BigStuff is designed to contain collections of conference papers, as well as
     other collections. If given a suitable item type, the item will be provided with a citation.
+    * The ability for the user to sort lists of items and collections displayed by shortcodes.
 
 ## Installation and Configuration
 
@@ -128,7 +129,20 @@ Three backgrounds are available as part of the theme, all reflecting the technic
 * [Bluebrint](images/blueprint.png)
 * [Old Blueprint](images/blueprint-distorted.png)
 
-There are three 
+### Sortable Shortcodes
+
+The `[items ...]` and `[collections ...]` shortcodes have been extended to allow
+user-selected sort options, similar to the browse pages.
+
+The old behaviour can be selected via a configuration checkbox.
+Alternately, the `sortable=1` or `sortable=0` options can be added to a shortcode
+to override the default behaviour.
+
+The sort options are dc:title, dc:creator, dc:date and added.
+The initial sort option can either be defined in the shortcode or defaults to added.
+
+The sort option applies to the whole page.
+
 ## Geeks Corner
 
 ### Licence
