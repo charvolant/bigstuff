@@ -11,7 +11,7 @@
 body {
     font: $base-font-size $base-font-stack;
     line-height: $base-line-height;
-    color: #333;
+    color: $text-color;
     background: $underlay-color;
 }
 
@@ -22,7 +22,7 @@ form, fieldset {
 }
 
 input[type=text], input[type=password], textarea {
-    border: 1px solid #ccc;
+    border: 1px solid $light-border;
     display: block;
 }
 
@@ -33,7 +33,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2, h3 {
-    color: $blueprint-blue;
+    color: $header-color;
     font-family: $header-stack;
     font-weight: 400;
 }
@@ -72,7 +72,7 @@ h5 {
 }
 
 h6 {
-    color: #666;
+    color: $unemphasised-color;
 }
 
 h1 a, h2 a, h3 a {
@@ -123,7 +123,7 @@ table {
 }
 
 th, td {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid $light-border;
     margin: 0;
     padding: rhythm(.5) 0;
 }
@@ -135,11 +135,11 @@ th {
 
 /* -- Links -- */
 a:link, a:visited {
-    color: #369;
+    color: $link-color;
 }
 
 a:hover, a:active {
-    color: #ca7;
+    color: $hover-color;
 }
 
 img a {
@@ -163,7 +163,7 @@ header {
         width: 100%;
         height: auto;
         vertical-align: bottom;
-        border: solid #ccc;
+        border: solid $light-border;
         border-width: 1px 1px 0 1px;
     }
 }
@@ -174,7 +174,7 @@ header {
     font-weight: 700;
     font-family: $title-stack;
     letter-spacing: -.1ex;
-    color: #c8c8c8;
+    color: $light-border;
     text-transform: uppercase;
     font-size: 5 * $base-font-size;
     line-height: 3 * $base-line-height;
@@ -205,8 +205,8 @@ header {
     }
 
     input[type=text], button {
-        border: 1px solid #ccc;
-        background: #fafafa;
+        border: 1px solid $light-border;
+        background: $light-background;
         @include appearance(none);
         border-radius: 0;
         height: 30px;
@@ -220,7 +220,7 @@ header {
     }
 
     button {
-        background: #369;
+        background: $button-background;
         color: white;
         position: absolute;
         border: 0;
@@ -249,7 +249,7 @@ header {
     right: 0;
     top: 0;
     bottom: 0;
-    border-left: 1px solid #005177;
+    border-left: 1px solid $button-border;
     position: absolute;
     text-decoration: none;
     text-indent: -9999px;
@@ -263,7 +263,7 @@ header {
         text-align: center;
         position: absolute;
         width: 100%;
-        color: #fff;
+        color: $button-color;
         background: $link-color;
         top: 0;
         bottom: 0;
@@ -274,13 +274,13 @@ header {
 
 #advanced-form {
     display: none;
-    background-color: #fff;
+    background-color: $light-background;
     overflow: auto;
     z-index: 1001;
     position: absolute;
     top: 30px;
     left: 0;
-    border: 1px solid #e7e7e7;
+    border: 1px solid $light-border;
     width: 100%;
     padding: 1.5em 1em;
     *behavior: url("../javascripts/boxsizing.htc");
@@ -329,7 +329,7 @@ header {
     height: auto;
     width: auto;
     padding: .5em;
-    border: 1px blue dashed;
+    border: 1px $button-border dashed;
     color: $highlight-color;
 }
 
@@ -393,7 +393,7 @@ header {
         overflow: visible;
 
         &:first-child > a {
-            border-left: 1px solid #ccc;
+            border-left: 1px solid $light-border;
         }
     }
 
@@ -402,7 +402,7 @@ header {
         position: relative;
         display: inline-block;
         margin: 0 0 -1px 0;
-        border: 1px solid #ccc;
+        border: 1px solid $light-border;
     }
 
     .nav-item:not(:first-child) > a {
@@ -413,13 +413,13 @@ header {
        navigation item */
     .nav-item > a:focus,
     .nav-item > a.open {
-        border: 1px solid #dedede;
+        border: 1px solid $light-border;
     }
 
     /* open state of first descendant link within a top level
        navigation item */
     .nav-item > a.open {
-        background-color: #fafafa;
+        background-color: $light-background;
         z-index: 1;
     }
 
@@ -430,8 +430,8 @@ header {
         top: rhythm(2);
         margin-top: 1px;
         padding: 0;
-        border: 1px solid #dedede;
-        background-color: #fff;
+        border: 1px solid $light-border;
+        background-color: $light-background;
     }
 
     /* sub-navigation panel open state */
@@ -451,7 +451,7 @@ header {
         top: rhythm(2);
         margin-top: 1px;
         z-index: 1000;
-        @include box-shadow(#ccc 0 3px 5px);
+        @include box-shadow($light-border 0 3px 5px);
     }
 
     /* list of items within sub-navigation panel */
@@ -475,7 +475,7 @@ header {
     }
 
     .sub-nav > li {
-        border-color: #ccc;
+        border-color: $light-border;
         @include trailing-border(1px, 0, $base-font-size, solid);
     }
 
@@ -489,7 +489,7 @@ header {
         text-decoration: none;
         display: block;
         padding: rhythm(.5) 18px;
-        background: #fafafa;
+        background: $light-background;
     }
 
     a:hover,
@@ -515,7 +515,7 @@ header {
 #secondary-nav, .secondary-nav {
     @include trailer();
     overflow: auto;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid $light-border;
     clear: both;
 
     li {
@@ -524,19 +524,19 @@ header {
     }
 
     a {
-        color: #666;
+        color: $unemphasised-color;
     }
 
     .active a {
-        background: #fff;
-        color: #333;
+        background: $light-background;
+        color: $text-color;
         font-weight: bold;
     }
 
     .tags .nav-browse-all a {
         font-weight: normal;
         border: none;
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid $light-background;
         background: none;
     }
 }
@@ -558,13 +558,13 @@ header {
 
     li {
         height: rhythm(2);
-        border: solid #e7e7e7;
+        border: solid $light-border;
         border-width: 1px 0 1px 1px;
         float: left;
         list-style-type: none;
 
         &:last-of-type {
-            border-right: 1px solid #e7e7e7;
+            border-right: 1px solid $light-border;
         }
     }
 
@@ -577,7 +577,7 @@ header {
 }
 
 .page-input input[type=text] {
-    border: 1px solid #ccc;
+    border: 1px solid $light-border;
     text-align: right;
     width: 50px;
     margin-right: 5px;
@@ -590,8 +590,8 @@ header {
 
 #content {
     overflow: hidden;
-    border: 1px solid #ccc;
-    background: #fff;
+    border: 1px solid $light-border;
+    background: $light-background;
     @include container;
     padding: rhythm(1) 10px;
     z-index: 0;
@@ -607,7 +607,7 @@ header {
 }
 
 .image img {
-    border: 1px solid #ccc;
+    border: 1px solid $light-border;
     float: left;
     padding: 2px;
     width: auto;
@@ -685,14 +685,14 @@ header {
     }
 
     padding-bottom: 1ex;
-    border-bottom: #cccccc thin solid;
+    border-bottom: $light-border thin solid;
     margin-bottom: 1ex;
 }
 
 .featured,
 #featured-exhibit {
     overflow: hidden;
-    background: #eee;
+    background: $panel-background;
     padding: rhythm() 20px;
     @include trailer();
 
@@ -706,17 +706,17 @@ header {
 
     img {
         float: left;
-        border: 1px solid #ccc;
+        border: 1px solid $light-border;
         padding: 2px;
         height: rhythm(7);
         width: auto;
-        background-color: #fff;
+        background-color: $panel-background;
     }
 }
 
 #recent-items .item {
     overflow: hidden;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid $light-border;
     @include trailer();
 
     .image {
@@ -821,14 +821,14 @@ ul.title-list {
 
 .browse:not(:first-child) .item:not(.single-line) {
     margin-top: 0.5ex;
-    border-top: 1px solid #eee;
+    border-top: 1px solid $light-border;
     padding-top: 1ex;
 }
 
 .item-pagination {
     clear: both;
     overflow: hidden;
-    border-top: 1px solid #eee;
+    border-top: 1px solid $light-border;
     padding-top: 18px;
 }
 
@@ -983,7 +983,7 @@ ul.title-list {
         overflow: auto;
         padding: 1ex 1em;
         border: thin solid $highlight-color;
-        background: #ffffff;
+        background: $panel-background;
         z-index: 100;
     }
 }
@@ -1017,7 +1017,7 @@ ul.title-list {
 #outputs {
     position: relative;
     top: 2ex;
-    border-top: 1px solid #eee;
+    border-top: 1px solid $light-border;
     clear: both;
 
     p {
@@ -1050,7 +1050,7 @@ ul.title-list {
     width: $base-line-height;
     position: relative;
     height: $base-line-height;
-    color: #666;
+    color: $unemphasised-color;
 
     &:after {
         content: "\f00d";
@@ -1072,7 +1072,7 @@ ul.title-list {
 .browse .collection,
 .browse .exhibit {
     clear: both;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid $light-border;
     float: left;
     width: 100%;
     @include padding-leader();
@@ -1093,7 +1093,7 @@ ul.title-list {
 .collection .image,
 .exhibit .image {
     display: block;
-    @include box-shadow(-5px -5px 0 -1px #f2f2f2, -5px -5px 0 #ccc, -8px -8px 0 -1px #ddd, -8px -8px 0 #CCC);
+    @include box-shadow(-5px -5px 0 -1px $light-background, -5px -5px 0 $light-border, -8px -8px 0 -1px $panel-background, -8px -8px 0 $light-border);
     margin: 0 rhythm() rhythm() 9px;
 }
 
@@ -1151,7 +1151,7 @@ ul.title-list {
     a {
         display: block;
         height: rhythm(4);
-        border: 1px solid #ccc;
+        border: 1px solid $light-border;
         padding: 2px;
     }
 
@@ -1163,7 +1163,7 @@ ul.title-list {
 
 .collections .item {
     overflow: hidden;
-    border-color: #ccc;
+    border-color: $light-border;
     @include leading-border(1px, 0, $base-font-size, solid);
     @include leader();
 }
@@ -1231,7 +1231,7 @@ ul.title-list {
 /* @group ----- Footer ----- */
 
 footer {
-    background: #fff;
+    background: $light-background;
     clear: both;
     @include container;
     overflow: hidden;
@@ -1287,7 +1287,7 @@ footer {
 /* @group ----- Exhibit Builder ----- */
 
 .pagination + .exhibit {
-    border-top: 1px solid #eee;
+    border-top: 1px solid $light-border;
 }
 
 #exhibit-pages {
@@ -1305,14 +1305,14 @@ footer {
     & > ul {
         margin-left: 0;
         @include leading-border(1px, 1, $base-font-size, solid);
-        border-color: #eee;
+        border-color: $light-border;
         padding-left: 0;
         list-style-type: none;
     }
 
     & > ul > li {
         @include trailing-border(1px, 1, $base-font-size, solid);
-        border-color: #eee;
+        border-color: $light-border;
         @include trailer();
     }
 
@@ -1368,7 +1368,7 @@ footer {
 .exhibit-page-nav a:hover,
 .exhibit-page-nav a:active,
 .exhibit-page-nav .current a {
-    background: #ff8000;
+    background: $highlight-color;
 }
 
 .exhibit-pagination .next a {
