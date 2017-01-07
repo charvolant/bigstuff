@@ -27,13 +27,13 @@
     </div>
     <?php endif;?>
 
-    <!-- The following prints a global citation for this item.on the web site -->
+    <!-- The following prints a global reference for this item -->
     <div id="item-citation" class="element">
         <h3><?php echo __('Reference'); ?></h3>
         <div class="element-text"><?php echo make_citation($item); ?></div>
     </div>
 
-    <!-- The following prints a citation for this item.on the web site -->
+    <!-- The following prints a citation for this item on this web site -->
     <div id="item-citation" class="element">
         <h3><?php echo __('Cite As'); ?></h3>
         <div class="element-text"><?php echo metadata('item','citation',array('no_escape'=>true)); ?></div>
