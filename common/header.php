@@ -29,6 +29,12 @@
         $uri = $storage->getUri($storage->getPathByType($background, 'theme_uploads'));
         echo '<style>body { background: url("' . $uri . '") repeat; }</style>';
     }
+    if ($logo_size = get_theme_option('logo_size')) {
+        echo '<style>#site-title { font-size: ' . $logo_size . '; line-height: 90%; }</style>';
+    }
+    if ($logo_color = get_theme_option('logo_color')) {
+        echo '<style>#site-title { color: ' . $logo_color . '; }</style>';
+    }
     ?>
     <!-- JavaScripts -->
     <?php queue_js_file('vendor/selectivizr', 'javascripts', array('conditional' => '(gte IE 6)&(lte IE 8)')); ?>
