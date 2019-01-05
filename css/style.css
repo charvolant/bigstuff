@@ -428,7 +428,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1, h2, h3 {
   color: #103cb1;
-  font-family: "Playfair Display SC", "Playfair Display", "Palatino Linotype", "Book Antiqua", "Times New Roman", Times, serif;
+  font-family: "Copperplate", "Playfair Display", "Palatino Linotype", "Book Antiqua", "Times New Roman", Times, serif;
   font-weight: 400;
 }
 
@@ -611,10 +611,10 @@ header:after {
   float: left;
   width: 50%;
   font-weight: 700;
-  font-family: "Playfair Display", "Palatino Linotype", "Book Antiqua", "Times New Roman", Times, serif;
-  letter-spacing: -.1ex;
+  font-family: "Copperplate", "Playfair Display", "Palatino Linotype", "Book Antiqua", "Times New Roman", Times, serif;
+  font-variant: small-caps;
+  letter-spacing: .1ex;
   color: #cccccc;
-  text-transform: uppercase;
   font-size: 60px;
   line-height: 90%;
   position: relative;
@@ -794,6 +794,8 @@ header:after {
   padding: 0;
   width: 960px;
   z-index: 50;
+  border: 1px solid #cccccc;
+  background-color: #fafafa;
   /* mega menu list */
   /* a top level navigation item in the mega menu */
   /* first descendant link within a top level navigation item */
@@ -829,11 +831,12 @@ header:after {
   }
 }
 #primary-nav .nav-menu {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   position: relative;
+  width: 100%;
   list-style: none;
-  margin: 0 0 0 -1px;
-  padding: 0 0 0 1px;
   z-index: 15;
 }
 #primary-nav li {
@@ -855,14 +858,10 @@ header:after {
   position: relative;
   overflow: visible;
 }
-#primary-nav .nav-item:first-child > a {
-  border-left: 1px solid #cccccc;
-}
 #primary-nav .nav-item > a {
   position: relative;
   display: inline-block;
   margin: 0 0 -1px 0;
-  border: 1px solid #cccccc;
 }
 #primary-nav .nav-item:not(:first-child) > a {
   margin-left: -1px;
@@ -934,7 +933,6 @@ header:after {
   text-decoration: none;
   display: block;
   padding: 0.75em 18px;
-  background: #fafafa;
 }
 #primary-nav a:hover,
 #primary-nav a:focus,
@@ -1148,7 +1146,7 @@ header:after {
   }
 }
 #home #content h2 {
-  font-family: "Playfair Display SC", "Playfair Display", "Palatino Linotype", "Book Antiqua", "Times New Roman", Times, serif;
+  font-family: "Copperplate", "Playfair Display", "Palatino Linotype", "Book Antiqua", "Times New Roman", Times, serif;
   font-weight: normal;
 }
 
