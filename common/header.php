@@ -20,14 +20,28 @@
     <?php fire_plugin_hook('public_head',array('view'=>$this)); ?>
     <!-- Stylesheets -->
     <?php
-    queue_css_url('//fonts.googleapis.com/css?family=Playfair+Display:700,400|Playfair+Display+SC:400|Raleway:700,400&subset=latin');
+    queue_css_url('//fonts.googleapis.com/css?family=Balthazar:700,400|Raleway:700,400|Merriweather:400,700');
     queue_css_file(array('iconfonts', 'style'));
 
     echo head_css();
-    if ($background = get_theme_option('Background Image')) {
+    $background_color = get_theme_option('Background Color');
+    $background_image = get_theme_option('Background Image');
+    if ($background_image) {
+        $tile = get_theme_option('Background Tile') == 1;
+        $tile_style = $tile ? 'repeat' : 'no-repeat fixed center top';
         $storage = Zend_Registry::get('storage');
-        $uri = $storage->getUri($storage->getPathByType($background, 'theme_uploads'));
-        echo '<style>body { background: url("' . $uri . '") repeat; }</style>';
+        $background_uri = $storage->getUri($storage->getPathByType($background_image, 'theme_uploads'));
+        $background_image = 'url('.$background_uri.') '.$tile_style;
+    }
+    if ($background_color || $background_image) {
+        echo '<style>body { background: ';
+        if ($background_color) {
+            echo $background_color;
+            echo ' ';
+        }
+        if ($background_image)
+            echo $background_image;
+        echo '; }</style>';
     }
     if ($logo_size = get_theme_option('logo_size')) {
         echo '<style>#site-title { font-size: ' . $logo_size . '; line-height: 90%; }</style>';

@@ -428,7 +428,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1, h2, h3 {
   color: #103cb1;
-  font-family: "Copperplate", "Playfair Display", "Palatino Linotype", "Book Antiqua", "Times New Roman", Times, serif;
+  font-family: "Copperplate", "Balthazar", "Merriweather", serif;
   font-weight: 400;
 }
 
@@ -611,7 +611,7 @@ header:after {
   float: left;
   width: 50%;
   font-weight: 700;
-  font-family: "Copperplate", "Playfair Display", "Palatino Linotype", "Book Antiqua", "Times New Roman", Times, serif;
+  font-family: "Copperplate", "Balthazar", "Merriweather", serif;
   font-variant: small-caps;
   letter-spacing: .1ex;
   color: #cccccc;
@@ -1146,7 +1146,7 @@ header:after {
   }
 }
 #home #content h2 {
-  font-family: "Copperplate", "Playfair Display", "Palatino Linotype", "Book Antiqua", "Times New Roman", Times, serif;
+  font-family: "Copperplate", "Balthazar", "Merriweather", serif;
   font-weight: normal;
 }
 
