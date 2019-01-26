@@ -33,12 +33,7 @@
         <div class="element-text"><?php echo make_citation($item); ?></div>
     </div>
 
-    <!-- The following prints a citation for this item on this web site -->
-    <div id="item-citation" class="element">
-        <h3><?php echo __('Cite As'); ?></h3>
-        <div class="element-text"><?php echo metadata('item','citation',array('no_escape'=>true)); ?></div>
-    </div>
-       <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
+    <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
 
 
     <ul class="item-pagination navigation">
