@@ -20,7 +20,7 @@
     <?php fire_plugin_hook('public_head',array('view'=>$this)); ?>
     <!-- Stylesheets -->
     <?php
-    queue_css_url('//fonts.googleapis.com/css?family=Balthazar:700,400|Raleway:700,400|Merriweather:400,700');
+    queue_css_url('//fonts.googleapis.com/css?family=Merriweather+Sans:700,400|Merriweather:400,700');
     queue_css_file(array('iconfonts', 'style'));
 
     echo head_css();
